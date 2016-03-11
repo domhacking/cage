@@ -1,0 +1,56 @@
+{
+  "name": "cage",
+  "version": "1.0.0",
+  "description": "cage",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node test/index.js | faucet",
+    "lint-css": "stylelint --config .stylelintrc.js ./client/css/**/*.css; exit 0",
+    "lint-js": "eslint --env es6 ./client/js; exit 0",
+    "lint": "npm run lint-css & npm run lint-js",
+    "generate": "gulp generate",
+    "client": "webpack-dev-server --inline --no-info --config ./webpack/dev.config.js",
+    "server": "babel-node server/index.js",
+    "start": "nodemon --exec npm run server && npm run client",
+    "build": "NODE_ENV=production npm-run webpack --config ./webpack/prod.config.js --progress --profile --colors"
+  },
+  "keywords": [
+    "cage"
+  ],
+  "author": "Hacking + Hedger",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "clean-webpack-plugin": "^0.1.8",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
+    "eslint-plugin-react": "^4.1.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "faucet": "0.0.1",
+    "postcss-cssnext": "^2.4.0",
+    "postcss-loader": "^0.8.1",
+    "style-loader": "^0.13.0",
+    "stylelint": "^4.4.0",
+    "stylelint-config-standard": "^3.0.0",
+    "tape": "^4.4.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.3",
+    "normalize.css": "^3.0.3",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "react-router": "^2.0.0",
+    "redux": "^3.3.1",
+    "redux-logger": "^2.6.0",
+    "redux-thunk": "^1.0.3"
+  }
+}
