@@ -22,11 +22,6 @@ Lint CSS and JS:
 npm run lint
 ```
 
-Run unit tests:
-```
-npm test
-```
-
 ## Release
 ```
 npm run build
