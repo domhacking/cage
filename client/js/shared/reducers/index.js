@@ -1,6 +1,5 @@
-import { combineReducers } from 'redux';
 import * as profile from '../../profile';
 
-export default combineReducers({
+export default {
   [profile.name]: profile.reducer
-});
+};

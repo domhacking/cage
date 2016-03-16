@@ -9,7 +9,7 @@
     "lint": "npm run lint-css & npm run lint-js",
     "client": "webpack-dev-server --config ./webpack/dev.config.js",
     "server": "babel-node server/index.js",
-    "start": "nodemon --watch server --exec npm run server & npm run client",
+    "start": "npm run client",
     "build": "NODE_ENV=production npm-run webpack --config ./webpack/prod.config.js --progress --profile --colors"
   },
   "keywords": [
@@ -18,12 +18,12 @@
   "author": "Hacking + Hedger",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^6.3.3",
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.2",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
     "clean-webpack-plugin": "^0.1.8",
     "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "firedux": "^0.6.2",
     "normalize.css": "^3.0.3",
     "react": "^15.0.0-rc.1",
     "react-dom": "^15.0.0-rc.1",

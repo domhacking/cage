@@ -7,7 +7,8 @@ import configureStore from '../store/configureStore';
 import App from './App';
 import * as Profile from '../../profile';
 
-const store = configureStore();
+// HACK - firedux, needs better implementation -> https://github.com/adjohnson916/firedux/issues/8
+const { store, firedux } = configureStore();
 
 export default class Root extends Component {
 
@@ -17,7 +18,7 @@ export default class Root extends Component {
       <Provider store={store}>
         <Router history={browserHistory}>
           <Route path="/" component={App}>
-            <IndexRoute component={Profile.Container} />
+            <IndexRoute component={Profile.Container} firedux={firedux} />
             {/*<Route path="/another" component={Another} />*/}
           </Route>
         </Router>

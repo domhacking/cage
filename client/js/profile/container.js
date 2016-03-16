@@ -10,9 +10,17 @@ import { getAll } from './selectors'
 
 export class Container extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.firedux = props.route.firedux
+  }
+
   render() {
 
     const { profile, testProfile } = this.props;
+    const firedux = this.firedux;
+
+    console.log(firedux.get('events'));
 
     return (
       <div>

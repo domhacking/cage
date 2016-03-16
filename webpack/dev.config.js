@@ -45,7 +45,6 @@ module.exports = {
     ]
   },
   postcss: [
-    require('autoprefixer'),
     require('postcss-cssnext')
   ]
 };
