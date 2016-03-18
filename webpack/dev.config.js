@@ -4,7 +4,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const PATHS = {
-  src: path.join(__dirname, '../client/js'),
+  src: path.join(__dirname, '../source/js'),
   dist: path.join(__dirname, '../public')
 }
 
@@ -18,7 +18,7 @@ module.exports = {
   plugins: [
     new CleanPlugin(['index.html', 'bundle.js', 'bundle.js.map', 'style.css', 'style.css.map'], PATHS.dist),
     new CopyPlugin([
-      { from: './client/index.html', to: 'index.html' }
+      { from: './source/index.html', to: 'index.html' }
     ])
   ],
   devServer: {

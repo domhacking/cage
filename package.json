@@ -7,9 +7,7 @@
     "lint-css": "stylelint --config .stylelintrc.js ./client/css/**/*.css; exit 0",
     "lint-js": "eslint --env es6 ./client/js; exit 0",
     "lint": "npm run lint-css & npm run lint-js",
-    "client": "webpack-dev-server --config ./webpack/dev.config.js",
-    "server": "babel-node server/index.js",
-    "start": "npm run client",
+    "start": "webpack-dev-server --config ./webpack/dev.config.js",
     "build": "NODE_ENV=production npm-run webpack --config ./webpack/prod.config.js --progress --profile --colors"
   },
   "keywords": [
@@ -43,8 +41,9 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
-    "firedux": "^0.6.2",
+    "firebase": "^2.4.1",
     "normalize.css": "^3.0.3",
+    "ramda": "^0.19.1",
     "react": "^15.0.0-rc.1",
     "react-dom": "^15.0.0-rc.1",
     "react-redux": "^4.4.1",

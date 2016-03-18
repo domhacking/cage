@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const PATHS = {
-  src: path.join(__dirname, '../client/js'),
+  src: path.join(__dirname, '../source/js'),
   dist: path.join(__dirname, '../public')
 }
 
@@ -29,7 +29,7 @@ module.exports = {
     }),
     new ExtractTextPlugin('style.css', { allChunks: true }),
     new CopyPlugin([
-      { from: './client/index.html', to: 'index.html' }
+      { from: './source/index.html', to: 'index.html' }
     ])
   ],
   module: {
