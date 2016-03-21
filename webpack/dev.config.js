@@ -26,7 +26,8 @@ module.exports = {
     port: 3000,
     // hot: true,
     inline: true,
-    stats: 'errors-only'
+    stats: 'errors-only',
+    historyApiFallback: true
   },
   module: {
     loaders: [

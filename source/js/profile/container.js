@@ -13,7 +13,8 @@ export class Container extends React.Component {
 
   render() {
 
-    const { profile, testProfile, firebaseActions } = this.props;
+    const { profile, profileActions, firebaseActions } = this.props;
+    const { testProfile } = profileActions;
     const { get: getFirebase } = firebaseActions;
 
     return (

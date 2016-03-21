@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Header from '../component/header';
+import { Header, Nav } from '../components';
 
 export default class App extends Component {
 
@@ -8,7 +8,9 @@ export default class App extends Component {
     return (
       <div>
 
-        {/*<Header />*/}
+        <Header text={'cage'} />
+
+        <Nav routes={['login']} />
 
         {/* render containers dynamically based on route */}
         {this.props.children}

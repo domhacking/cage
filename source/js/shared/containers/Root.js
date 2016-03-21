@@ -26,8 +26,10 @@ export default class Root extends Component {
         <Router history={browserHistory}>
           <Route path="/" component={App}>
             <IndexRoute component={Profile.Container} />
-            {/*<IndexRoute component={Login .Container} />*/}
-            {/*<Route path="/login" component={Login.Container} />*/}
+            <Route path="/login" component={Login.Container} />
+
+            {/* 404 */}
+            <Route path="*" component={Profile.Container} />
           </Route>
         </Router>
       </Provider>
