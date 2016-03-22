@@ -17,3 +17,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  flex-shrink: 0;
+}

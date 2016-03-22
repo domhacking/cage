@@ -1,3 +1,12 @@
-.base {
 
+@value gutter-vertical, gutter-side from "../shared/settings.css";
+
+.base {
+  composes: Grid from "../shared/grid.css";
+}
+
+.item {
+  composes: Cell from "../shared/grid.css";
+  padding: gutter-vertical gutter-side;
+  list-style: none;
 }
