@@ -15,6 +15,11 @@ module.exports = {
     path: PATHS.dist,
     filename: 'bundle.js'
   },
+  resolve: {
+    alias: {
+      material: 'material-ui/lib'
+    }
+  },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({

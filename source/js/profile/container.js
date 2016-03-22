@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 import * as actions from './actions'
 import * as components from './components'
-import { Button } from '../shared/components'
+import RaisedButton from 'material/raised-button';
 import { getAll } from './selectors'
 
 import * as Firebase from '../shared/services/firebase';
@@ -38,7 +38,7 @@ export class Container extends React.Component {
         Profile: {profile.name}
         <components.avatar url={profile.avatar} />
         <input ref='profile_name' type='text' />
-        <Button onclick={() => setProfile({name: this.refs.profile_name.value})}>Set</Button>
+        <RaisedButton label={'Set'} onClick={() => setProfile({name: this.refs.profile_name.value})} />
       </div>
     )
 

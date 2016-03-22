@@ -15,6 +15,11 @@ module.exports = {
     path: PATHS.dist,
     filename: 'bundle.js'
   },
+  resolve: {
+    alias: {
+      material: 'material-ui/lib'
+    }
+  },
   plugins: [
     new CleanPlugin(['index.html', 'bundle.js', 'bundle.js.map', 'style.css', 'style.css.map'], PATHS.dist),
     new CopyPlugin([
