@@ -1,4 +1,5 @@
+import Error from './error';
 import Header from './header';
 import Nav from './nav';
 
-export { Header, Nav };
+export { Error, Header, Nav };

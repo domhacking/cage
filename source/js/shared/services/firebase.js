@@ -34,3 +34,22 @@ export function removeAllListeners(ref) {
   ref.off();
 
 }
+
+export function createUser(payload) {
+
+  // create new email/password user
+
+  const ref = new Firebase(FIREBASE_URL);
+
+  return new Promise((resolve, reject) => {
+
+    ref.createUser({
+      ...payload
+    }, function(error, userData) {
+      if (error) return reject(error);
+      else return resolve(userData);
+    });
+
+  });
+
+}

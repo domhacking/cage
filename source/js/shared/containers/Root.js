@@ -7,6 +7,7 @@ import configureStore from '../store/configureStore';
 import App from './App';
 import * as Profile from '../../profile';
 import * as Login from '../../login';
+import * as Register from '../../register';
 
 const store = configureStore();
 
@@ -20,6 +21,7 @@ export default class Root extends Component {
           <Route path="/" component={App}>
             <IndexRoute component={Profile.Container} />
             <Route path="/login" component={Login.Container} />
+            <Route path="/register" component={Register.Container} />
 
             {/* 404 */}
             <Route path="*" component={Profile.Container} />
