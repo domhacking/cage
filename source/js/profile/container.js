@@ -7,22 +7,38 @@ import * as actions from './actions'
 import * as components from './components'
 import { Button } from '../shared/components'
 import { getAll } from './selectors'
-import * as firebase from '../firebase'
+
+import * as Firebase from '../shared/services/firebase';
 
 export class Container extends React.Component {
 
+  componentWillMount() {
+
+    const { receiveRef } = this.props;
+
+    // TODO - this should take id from props/route `/users/:id`
+    Firebase.create('/users/0', receiveRef);
+
+  }
+
+  componentWillUnmount() {
+
+    const { removeRef } = this.props;
+
+    removeRef();
+
+  }
+
   render() {
 
-    const { profile, profileActions, firebaseActions } = this.props;
-    const { testProfile } = profileActions;
-    const { get: getFirebase } = firebaseActions;
+    const { profile, setProfile } = this.props;
 
     return (
       <div>
         Profile: {profile.name}
-        <components.image url={profile.imageUrl} />
-        <Button onclick={() => testProfile()}>Test</Button>
-        <Button onclick={() => getFirebase('groups')}>Get</Button>
+        <components.avatar url={profile.avatar} />
+        <input ref='profile_name' type='text' />
+        <Button onclick={() => setProfile({name: this.refs.profile_name.value})}>Set</Button>
       </div>
     )
 
@@ -34,10 +50,5 @@ export default connect(
   createStructuredSelector({
     profile: getAll
   }),
-  dispatch => {
-    return {
-      profileActions: bindActionCreators(actions, dispatch),
-      firebaseActions: bindActionCreators(firebase.actions, dispatch)
-    }
-  }
+  dispatch => bindActionCreators(actions, dispatch)
 )(Container)

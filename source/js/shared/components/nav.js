@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from '../../../css/components/nav.css';
 
@@ -13,6 +13,10 @@ const Component = ({routes}) => {
     </ul>
   );
 
+};
+
+Component.propTypes = {
+  routes: PropTypes.array.isRequired
 };
 
 export default Component;

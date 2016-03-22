@@ -1,18 +1,19 @@
-import { TEST } from './actionTypes'
+import { RECEIVE_REF } from './actionTypes'
 
 export const initialState = {
-  name: 'nick',
-  imageUrl: 'http://bit.ly/1OFEpYv'
+  ref: null,
+  name: '',
+  avatar: ''
 }
 
 export default (state = initialState, action) => {
 
   switch (action.type) {
 
-    case TEST:
+    case RECEIVE_REF:
       return Object.assign({}, state, {
-        imageUrl: 'http://i.imgur.com/kZOMq.png',
-        name: 'test'
+        ref: action.ref,
+        ...action.payload
       });
 
     default:

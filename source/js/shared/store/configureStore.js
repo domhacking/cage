@@ -22,8 +22,8 @@ export default function configureStore(state = initialState) {
   // store state on change
   store.subscribe( () => {
 
-    // omit firebase ref from state storage
-    const state = R.omit(['firebase'], store.getState());
+    // omit firebase refs from state storage
+    const state = R.map(R.omit(['ref']), store.getState());
 
     Storage.setItem(STATE_KEY, state);
 

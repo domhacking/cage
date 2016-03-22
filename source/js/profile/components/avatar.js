@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames/bind';
-import styles from '../../../css/components/profile/image.css';
+import styles from '../../../css/components/profile/avatar.css';
 
 const cx = classNames.bind(styles);
 
