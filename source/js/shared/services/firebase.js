@@ -87,7 +87,12 @@ export function unauthUser() {
 
   const ref = generateRef();
 
-  ref.unauth();
+  return new Promise((resolve, reject) => {
+
+    ref.unauth();
+    return resolve();
+
+  });
 
 }
 

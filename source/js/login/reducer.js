@@ -1,4 +1,4 @@
-import { AUTH, ERROR } from './actionTypes'
+import { AUTH, ERROR, LOGOUT } from './actionTypes'
 
 export const initialState = {
   error: false,
@@ -23,6 +23,12 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         error: true,
         errorCode: action.code,
+        authorised: false,
+        user: null
+      });
+
+    case LOGOUT:
+      return Object.assign({}, state, {
         authorised: false,
         user: null
       });

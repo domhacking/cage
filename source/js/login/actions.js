@@ -1,4 +1,4 @@
-import { AUTH, ERROR } from './actionTypes';
+import { AUTH, ERROR, LOGOUT } from './actionTypes';
 import { push } from 'react-router-redux';
 import * as Firebase from '../shared/services/firebase';
 
@@ -16,6 +16,12 @@ function receiveLoginFailure(error) {
   }
 }
 
+function receiveLogout() {
+  return {
+    type: LOGOUT
+  }
+}
+
 export function loginUser(payload) {
 
   return (dispatch, getState) => {
@@ -26,6 +32,20 @@ export function loginUser(payload) {
         dispatch(push('/'));
       })
       .catch( error => dispatch(receiveLoginFailure(error)) );
+
+  }
+
+}
+
+export function logoutUser() {
+
+  return (dispatch, getState) => {
+
+    Firebase.unauthUser()
+      .then( () => {
+        dispatch(receiveLogout());
+        dispatch(push('/login'));
+      });
 
   }
 
