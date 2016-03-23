@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux'
 import configureStore from '../store/configureStore';
 
 // containers
@@ -11,13 +12,16 @@ import * as Register from '../../register';
 
 const store = configureStore();
 
+// Create an enhanced history that syncs navigation events with the store
+const history = syncHistoryWithStore(browserHistory, store);
+
 export default class Root extends Component {
 
   render() {
 
     return (
       <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={history}>
           <Route path="/" component={App}>
             <IndexRoute component={Profile.Container} />
             <Route path="/login" component={Login.Container} />

@@ -1,7 +1,9 @@
-import { TEST } from './actionTypes'
+import { AUTH, ERROR } from './actionTypes'
 
 export const initialState = {
-  loggedIn: false,
+  error: false,
+  errorCode: null,
+  authorised: false,
   user: null
 }
 
@@ -9,10 +11,20 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
 
-    case TEST:
+    case AUTH:
       return Object.assign({}, state, {
-        loggedIn: true,
-        user: action.username
+        error: false,
+        errorCode: null,
+        authorised: true,
+        user: action.user
+      });
+
+    case ERROR:
+      return Object.assign({}, state, {
+        error: true,
+        errorCode: action.code,
+        authorised: false,
+        user: null
       });
 
     default:

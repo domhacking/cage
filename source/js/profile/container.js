@@ -16,7 +16,7 @@ export class Container extends React.Component {
 
     const { receiveRef } = this.props;
 
-    // TODO - this should take id from props/route `/users/:id`
+    // TODO - this should take id from props/route `/users/:id` https://github.com/reactjs/react-router-tutorial/blob/start/lessons/06-params.md
     Firebase.create('/users/0', receiveRef);
 
   }

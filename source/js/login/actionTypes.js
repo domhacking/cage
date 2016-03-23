@@ -1,3 +1,4 @@
 import { name } from './constants';
 
-export const TEST = `${name}/TEST`;
+export const AUTH = `${name}/AUTH`;
+export const ERROR = `${name}/ERROR`;

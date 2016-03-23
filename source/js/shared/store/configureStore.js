@@ -1,4 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { browserHistory } from 'react-router';
+import { routerMiddleware } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 import R from 'ramda';
@@ -7,9 +9,10 @@ import * as Storage from '../services/storage';
 import { STATE_KEY } from '../constants';
 
 const logger = createLogger();
+const router = routerMiddleware(browserHistory);
 
 const finalCreateStore = compose(
-  applyMiddleware(thunk, logger)
+  applyMiddleware(router, thunk, logger)
 )(createStore);
 
 // persist stored state
