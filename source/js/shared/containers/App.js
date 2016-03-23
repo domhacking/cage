@@ -10,7 +10,7 @@ export default class App extends Component {
 
         <Header text={'cage'} />
 
-        <Nav routes={['login', 'register']} />
+        <Nav routes={['login', 'register', 'profile']} />
 
         {/* render containers dynamically based on route */}
         {this.props.children}

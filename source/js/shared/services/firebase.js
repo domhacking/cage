@@ -90,3 +90,13 @@ export function unauthUser() {
   ref.unauth();
 
 }
+
+export function isLoggedIn() {
+
+  // check for authd user
+
+  const ref = generateRef();
+
+  return ref.getAuth();
+
+}
